@@ -3,12 +3,30 @@ revision = 1
 requires-python = ">=3.13"
 
 [[package]]
+name = "advancedhtmlparser"
+version = "9.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "queryablelist" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/58/90/9be5b3cf430c36b0ba27959aad24262be5494b4b9a2aa5a1c427b8391ef9/AdvancedHTMLParser-9.0.2.tar.gz", hash = "sha256:837d17dadaa8eef87bf5773f05b5ddaceb76183b3dc13671e5550adf177f5465", size = 315957 }
+
+[[package]]
 name = "annotated-types"
 version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89", size = 16081 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53", size = 13643 },
+]
+
+[[package]]
+name = "parse"
+version = "1.20.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4f/78/d9b09ba24bb36ef8b83b71be547e118d46214735b6dfb39e4bfde0e9b9dd/parse-1.20.2.tar.gz", hash = "sha256:b41d604d16503c79d81af5165155c0b20f6c8d6c559efa66b4b695c3e5a0a0ce", size = 29391 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/31/ba45bf0b2aa7898d81cbbfac0e88c267befb59ad91a19e36e1bc5578ddb1/parse-1.20.2-py2.py3-none-any.whl", hash = "sha256:967095588cb802add9177d0c0b6133b5ba33b1ea9007ca800e526f42a85af558", size = 20126 },
 ]
 
 [[package]]
@@ -51,15 +69,27 @@ wheels = [
 ]
 
 [[package]]
+name = "queryablelist"
+version = "3.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/cd/ff38fb62fc81def97f50a98fc4bdbbe258351b5be8be6a6b69fec7a25c81/QueryableList-3.1.0.tar.gz", hash = "sha256:8891dccbadc69a35f5944e1826d8f8db224522aa3af913e301a7a448f5b411e9", size = 55602 }
+
+[[package]]
 name = "randbats-data"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "advancedhtmlparser" },
+    { name = "parse" },
     { name = "pydantic" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pydantic", specifier = ">=2.10.6" }]
+requires-dist = [
+    { name = "advancedhtmlparser", specifier = ">=9.0.2" },
+    { name = "parse", specifier = ">=1.20.2" },
+    { name = "pydantic", specifier = ">=2.10.6" },
+]
 
 [[package]]
 name = "typing-extensions"
