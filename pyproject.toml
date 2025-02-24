@@ -7,5 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "advancedhtmlparser>=9.0.2",
     "parse>=1.20.2",
+    "pre-commit>=4.1.0",
     "pydantic>=2.10.6",
+    "ruff>=0.9.7",
 ]
