@@ -72,10 +72,15 @@ class RawDataLoader:
         #   2.1 Header
         #   2.2 Turns
         #   2.3 Results
-        battle_chunks = battle_text.split("\n|\n")
+        battle_chunks = battle_text.split("\n|t:|")
         header: str = battle_chunks[0]
-        turns: list[str] = battle_chunks[1:-1]
-        results: str = battle_chunks[-1]
+        turns: list[str] = [f"|t:|{chunk}" for chunk in battle_chunks[1:-1]]
+
+        last_turn = f"|t:|{battle_chunks[-1]}"
+        last_turn, results = last_turn.split("|win|")
+        turns.append(last_turn)
+        results: str = f"|win|{results}"
+
         battle = {"header": header, "turns": turns, "results": results}
         return players, battle
 
