@@ -1,4 +1,3 @@
-import parse
 from typing import Optional
 
 from src.utils.raw_data_loader import RawDataLoader
@@ -15,21 +14,17 @@ class BattleReader:
         header_reader = HeaderReader(header=self.battle_log.header)
         parsed_header = header_reader.parse_header()
         header_reader.update_battle_log(
-            parsed_header=parsed_header,
-            battle_log=self.battle_log
+            parsed_header=parsed_header, battle_log=self.battle_log
         )
         del self.battle_log.header
-    
+
     def read_results(self):
         results_reader = ResultsReader(results=self.battle_log.results)
         parsed_results = results_reader.parse_results()
         results_reader.update_battle_log(
-            parsed_results=parsed_results,
-            battle_log=self.battle_log
+            parsed_results=parsed_results, battle_log=self.battle_log
         )
         del self.battle_log.results
-
-
 
 
 if __name__ == "__main__":

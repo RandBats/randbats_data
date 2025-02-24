@@ -11,7 +11,9 @@ class HeaderReader:
         for line in self.header.split("\n"):
             if line.startswith("|t:|"):
                 timestamp = int(line.split("|t:|")[1])
-                return timestamp, datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+                return timestamp, datetime.fromtimestamp(timestamp).strftime(
+                    "%Y-%m-%d %H:%M:%S"
+                )
         raise ValueError("Timestamp not found in header")
 
     def parse_header(self) -> dict[str, int | str | dict[str, int]]:
@@ -22,8 +24,9 @@ class HeaderReader:
         }
 
     @staticmethod
-    def update_battle_log(parsed_header: dict[str, int | str | dict[str, int]], battle_log: BattleLog) \
-            -> BattleLog:
+    def update_battle_log(
+        parsed_header: dict[str, int | str | dict[str, int]], battle_log: BattleLog
+    ) -> BattleLog:
         battle_log.start_time_unix = parsed_header["timestamp_unix"]
         battle_log.start_time_human = parsed_header["timestamp_human"]
 

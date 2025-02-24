@@ -1,4 +1,3 @@
-from datetime import datetime
 import parse
 
 from src.data_model.battle_log import BattleLog
@@ -44,10 +43,10 @@ class ResultsReader:
                 return player_id
         raise ValueError("Could not get player_id from player_name")
 
-    def update_battle_log(self, parsed_results: dict[str, dict[str, int | str]], battle_log: BattleLog) \
-            -> BattleLog:
+    def update_battle_log(
+        self, parsed_results: dict[str, dict[str, int | str]], battle_log: BattleLog
+    ) -> BattleLog:
         for player_name, player_result in parsed_results.items():
-
             player_id = self._get_player_id_from_player_name(player_name, battle_log)
 
             battle_log.players[player_id].start_rating = player_result["start_rating"]

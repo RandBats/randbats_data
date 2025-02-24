@@ -3,6 +3,7 @@ from typing import Optional
 
 from src.data_model.player import Player
 
+
 class BattleLog(BaseModel):
     id: str
     players: dict[str, Player]
